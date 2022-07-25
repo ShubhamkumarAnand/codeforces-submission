@@ -23,6 +23,7 @@ void solve() {
   for (int i = 0; i < n; i++) {
     cin >> b[i];
   }
+  // TODO : Implement the algorithm solution
 }
 
 int main() {

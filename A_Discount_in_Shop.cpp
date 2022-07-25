@@ -31,6 +31,7 @@ void solve() {
   // * https://www.codechef.com/ICPCIN19/problems/DISCSHOP
   int n;
   cin >> n;
+  // TODO : Implement solution
 }
 
 int main() {

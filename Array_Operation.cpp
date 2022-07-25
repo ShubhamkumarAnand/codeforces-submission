@@ -11,6 +11,7 @@ void solve() {
   for (int i = 0; i < n; i++) {
     cin >> v[i];
   }
+  // TODO: Implement the Solution
   while (n > 1) {
     sort(v.begin(), v.end());
     for (int i = 0; i < n; i++) {

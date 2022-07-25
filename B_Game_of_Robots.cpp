@@ -28,6 +28,7 @@ const ld eps = 1e-6;
 
 void solve() {
   // * https://www.codechef.com/ACMIND18/problems/ROBOGAME
+  // TODO : Implement the solution algorithm
 }
 
 int main() {

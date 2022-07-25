@@ -37,4 +37,5 @@ int main() {
     cin >> a >> b;
     v.push_back(make_pair(a, b));
   }
+  // TODO: Implement the solution for function.
 }
