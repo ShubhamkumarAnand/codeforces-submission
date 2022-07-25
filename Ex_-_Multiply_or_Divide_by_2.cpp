@@ -23,7 +23,7 @@ void solve() {
   for (int i = 0; i < n; i++) {
     cin >> b[i];
   }
-  // TODO : Implement the algorithm solution
+  // TODO : Implement the solution Multiply or divide by 2
 }
 
 int main() {
