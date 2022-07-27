@@ -28,7 +28,8 @@ const ld eps = 1e-6;
 int digitSum(int n) {
   int sum = 0;
   while (n > 0) {
-    sum += n % 10;
+    int rem = n % 10;
+    sum += rem;
     n /= 10;
   }
   return sum;
@@ -36,7 +37,8 @@ int digitSum(int n) {
 
 bool magicNumber(int n) {
   while (n > 0) {
-    if (n % 10 != 4 or n % 10 != 7) {
+    int rem = n % 10;
+    if (rem != 4 or rem != 7) {
       return false;
     }
     n /= 10;
