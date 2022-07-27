@@ -19,7 +19,7 @@ void solve() {
   cin >> str;
   transform(str.begin(), str.end(), str.begin(), ::tolower);
   int len = str.size();
-  // TODO
+
   vector<char> ch;
   for (int i = 0; i < len; i++) {
     if (str[i] == 'a' or str[i] == 'o' or str[i] == 'y' or str[i] == 'e' or
