@@ -1,4 +1,11 @@
+# Setup filesystem
 .cph
 tasks.json
+
+# Specific Files
 algo
 .vscode
+
+# Important snippet for the programming
+snippet.h
+cp.h
