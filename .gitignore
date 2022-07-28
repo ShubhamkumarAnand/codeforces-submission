@@ -1,6 +1,7 @@
 # Setup filesystem
 .cph
 tasks.json
+.catalyst
 
 # Specific Files
 algo
