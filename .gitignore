@@ -2,6 +2,7 @@
 .cph
 tasks.json
 .catalyst
+.clang-format
 
 # Specific Files
 algo
