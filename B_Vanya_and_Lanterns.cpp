@@ -29,37 +29,18 @@ void solve() {
   for (int i = 0; i < n; i++) {
     cin >> v[i];
   }
-  // TODO
   sort(v);
-  double maxDist = 0;
-  for (int i = 1; i < n; i++) {
-    maxDist = max(maxDist, v[i] - v[i - 1]);
-    debug(maxDist);
+  // Finding the maximum distance between the first point and the start of the
+  // road.
+  double maxDist = v[0] * 2;
+  // Finding the maximum distance between two consecutive points.
+  for (int i = 0; i < n - 1; i++) {
+    maxDist = max(maxDist, v[i + 1] - v[i]);
   }
-  double minLightDist = maxDist / 2;
-  for (int i = 0; i < n; i++) {
-    double left, right;
-    if (v[i] == 0) {
-      left = 0;
-      right = v[i + 1] - v[i];
-    } else if (i == 0) {
-      left = v[i] - 0;
-      right = v[i + 1] - v[i];
-    } else if (v[i] == l) {
-      right = 0;
-      left = v[i] - v[i - 1];
-    } else if (i == n - 1) {
-      left = v[i] - v[i - 1];
-      right = n - v[i];
-    } else {
-      left = v[i] - v[i - 1];
-      right = v[i + 1] - v[i];
-    }
-    minLightDist = max(minLightDist, right);
-    minLightDist = max(minLightDist, left);
-    debug(minLightDist);
-  }
-  dbe(minLightDist);
+  // Finding the maximum distance between the last point and the end of the
+  // road.
+  maxDist = max(maxDist, 2 * (l - v[n - 1]));
+  dbe(maxDist * 0.5);
 }
 
 int main() {

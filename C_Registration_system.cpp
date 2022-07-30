@@ -1,11 +1,13 @@
 /*
    * Author :  imskanand
-   ^ Time   : 28 July 2022 (18:28)
+   ^ Time   : 31 July 2022 (00:04)
 */
-#include <iostream>
-#include <vector>
+
 #pragma GCC optimize("O3,unroll-loops")
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
 using namespace std;
 using i64 = long long;
 
@@ -24,30 +26,16 @@ using i64 = long long;
 void solve() {
   int n;
   cin >> n;
-  vector<int> v(n);
+  map<string, int> mp;
   for (int i = 0; i < n; i++) {
-    cin >> v[i];
-  }
-  sort(v);
-  if (n % 2 == 1) {
-    dbe("NO");
-    return;
-  }
-  // Checking if the first half of the array is equal to the second half of the
-  // array.
-  for (int i = 0; i < n / 2; i++) {
-    if (v[i] == v[i + n / 2]) {
-      dbe("NO");
-      return;
+    string str;
+    cin >> str;
+    mp[str]++;
+    if (mp[str] == 1) {
+      dbe("OK");
+    } else {
+      cout << str << mp[str] - 1 << endl;
     }
-    if (i + 1 < n / 2 && v[i + 1] == v[i + n / 2]) {
-      dbe("NO");
-      return;
-    }
-  }
-  dbe("YES");
-  for (int i = 0; i < n / 2; i++) {
-    cout << v[i] << " " << v[i + n / 2] << " \n"[i == n / 2 - 1];
   }
 }
 
@@ -56,7 +44,7 @@ int main() {
   cin.tie(nullptr);
 
   int t = 1;
-  cin >> t;
+  // cin >> t;
   while (t--) {
     solve();
   }
