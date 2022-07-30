@@ -27,27 +27,18 @@ void solve() {
   // ^ https://www.codechef.com/IEMC2022/problems/IEMCO10_P3V1
   int n, count = 0;
   cin >> n;
-  bool flag = true;
-  // TODO
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
       int a;
       cin >> a;
-      if (i == j and i > 0 and j > 0) {
-        debug(a);
-        if (a != 1) {
-          flag = false;
-          break;
+      if (a == 1) {
+        if (i % 2 != 1 || j % 2 != 1) {
+          count++;
         }
-      } else if (a == 1) {
-        count++;
       }
     }
-    if (!flag) {
-      break;
-    }
   }
-  if (flag) {
+  if (count == 0) {
     dbe("Proper Placement");
   } else {
     dbe("Improper Placement");

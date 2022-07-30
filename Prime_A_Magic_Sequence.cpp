@@ -52,32 +52,47 @@ void solve() {
   int n;
   cin >> n;
   cout << n << " ";
-  int v[1000][1000];
-  int primeCount = 0, j;
+  vector<vector<int>> v(n, vector<int>(10));
+  int primeCount = (isPrime(n) ? 1 : 0), numOfElements = 1;
   bool flag = false;
-  // TODO
+  v[0][0] = n;
+
+  // Taking the input Array with the given operations
   for (int i = 0; i < n; i++) {
-    for (j = 1; j < 10; j++) {
-      v[0][0] = n;
-      if (v[i][j - 1] % 2 == 0) {
-        v[i][j] = v[i][j - 1] / 2;
-      } else {
-        v[i][j] = v[i][j - 1] * 3 + 1;
+    for (int j = 0; j < 10; j++) {
+      if (j == 0 and i == 0) {
+        continue;
       }
-      if (isPrime(v[i][j])) {
-        primeCount++;
+      int num = 0;
+      if (j < 1 and i > 0) {
+        num = v[i - 1][9];
+        v[i][j] = ((num % 2 == 0) ? (num / 2) : ((num * 3) + 1));
+        cout << v[i][j] << " ";
+        numOfElements++;
+        if (isPrime(v[i][j])) {
+          primeCount++;
+        }
+        continue;
       }
+      num = v[i][j - 1];
+      v[i][j] = ((num % 2 == 0) ? (num / 2) : ((num * 3) + 1));
+      cout << v[i][j] << " ";
+      numOfElements++;
       if (v[i][j] < 2) {
         flag = true;
         break;
       }
-      cout << v[i][j] << " ";
+      if (isPrime(v[i][j])) {
+        primeCount++;
+      }
     }
+    cout << endl;
     if (flag) {
       break;
     }
-    cout << endl;
   }
+  dbe(numOfElements);
+  dbe(primeCount);
 }
 
 int main() {
