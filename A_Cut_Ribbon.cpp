@@ -1,9 +1,8 @@
 /*
    * Author :  imskanand
-   ^ Time   : 01 August 2022 (01:27)
+   ^ Time   : 01 August 2022 (02:01)
 */
 
-#include <vector>
 #pragma GCC optimize("O3,unroll-loops")
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -26,36 +25,34 @@ using i64 = long long;
 #define dbe(x) cout << x << endl;
 #define dbz(x) cout << x << " ";
 
-bool isTPrime(ll n) {
-  ll count = 2;
-  if (n == 2) {
-    return false;
-  }
-  for (ll i = 2; i <= (n / 2) + 1; i++) {
-    if (count > 3) {
-      return false;
-    }
-    if (n % i == 0) {
-      count++;
-    }
-    debug(count);
-  }
-  return (count == 3);
-}
-set<int> s;
 void solve() {
-  ll n;
-  cin >> n;
-  v(n);
+  int n, a, b, c;
+  cin >> n >> a >> b >> c;
+  int dp[n + 1];
+  dp[0] = 0;
   // TODO
-  for (ll i = 0; i < n; i++) {
-    cin >> v[i];
+  /* Finding the minimum number of steps to reach the number `i` from `0` using
+  the given numbers `a`, `b` and `c`. */
+  for (int i = 1; i < n + 1; i++) {
+    int x, y, z;
+    x = y = z = -1;
+    if (i >= a) {
+      x = dp[i - a];
+    }
+    if (i >= b) {
+      y = dp[i - b];
+    }
+    if (i >= c) {
+      z = dp[i - c];
+    }
+    if (x == -1 and y == -1 and z == -1) {
+      dp[i] = -1;
+    } else {
+      dp[i] = 1 + max(x, max(y, z));
+    }
   }
-  for (int i = 0; i < n; i++)
-    // Checking if the number is already present in the set or not.
-    dbe(((s.find(v[i]) != s.end()) ? "YES" : "NO"));
+  dbe(dp[n]);
 }
-
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
