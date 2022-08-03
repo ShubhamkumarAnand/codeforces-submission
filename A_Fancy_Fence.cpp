@@ -1,6 +1,6 @@
 /*
    * Author :  imskanand
-   ^ Time   : 03 August 2022 (12:52)
+   ^ Time   : 03 August 2022 (23:45)
 */
 
 #pragma GCC optimize("O3,unroll-loops")
@@ -26,23 +26,9 @@ using i64 = long long;
 #define dbz(x) cout << x << " ";
 
 void solve() {
-  int n;
-  cin >> n;
-  v(n);
-  for (int i = 0; i < n; i++) {
-    cin >> v[i];
-  }
-  map<int, int> mp;
-  int count = 0;
-  for (int i = n - 1; i >= 0; i--) {
-    if (mp[v[i]] > 0)
-      break;
-    else {
-      mp[v[i]]++;
-      count++;
-    }
-  }
-  dbe(n - count);
+  int angle;
+  cin >> angle;
+  dbe((360 % (180 - angle) == 0 ? "YES" : "NO"));
 }
 
 int main() {

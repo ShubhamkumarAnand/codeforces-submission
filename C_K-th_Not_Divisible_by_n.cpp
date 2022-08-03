@@ -1,6 +1,6 @@
 /*
    * Author :  imskanand
-   ^ Time   : 03 August 2022 (12:52)
+   ^ Time   : 03 August 2022 (23:48)
 */
 
 #pragma GCC optimize("O3,unroll-loops")
@@ -26,23 +26,13 @@ using i64 = long long;
 #define dbz(x) cout << x << " ";
 
 void solve() {
-  int n;
-  cin >> n;
-  v(n);
-  for (int i = 0; i < n; i++) {
-    cin >> v[i];
-  }
-  map<int, int> mp;
-  int count = 0;
-  for (int i = n - 1; i >= 0; i--) {
-    if (mp[v[i]] > 0)
-      break;
-    else {
-      mp[v[i]]++;
-      count++;
-    }
-  }
-  dbe(n - count);
+  int n, k;
+  cin >> n >> k;
+  --k;
+  /* `k / (n - 1) * n` is the number of times the first person has been chosen.
+  `k % (n - 1)` is the number of times the second person has been chosen.
+  `+ 1` is because the first person is chosen once. */
+  dbe(k / (n - 1) * n + k % (n - 1) + 1)
 }
 
 int main() {

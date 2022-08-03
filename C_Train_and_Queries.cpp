@@ -36,7 +36,6 @@ void solve() {
     cin >> a >> b;
     vp.push_back(make_pair(a, b));
   }
-  // TODO
   for (int i = 0; i < k; i++) {
     int start = vp[i].first, end = vp[i].second;
     int j = 0;
