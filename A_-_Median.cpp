@@ -28,7 +28,7 @@ using i64 = long long;
 void solve() {
   int a, b, c;
   cin >> a >> b >> c;
-  if ((a + c) / 2 == b) {
+  if (((a + c) / 2 == b) or (a == b) or (b == c)) {
     dbe("Yes");
     return;
   }
