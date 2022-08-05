@@ -209,7 +209,7 @@ ll rightEnd = 1e9 + 5;
 
 void solve() {
   int t;
-  cin >> t;
+  // cin >> t;
   while (t--) {
   }
 }
