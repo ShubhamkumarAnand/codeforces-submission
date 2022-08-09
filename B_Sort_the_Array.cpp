@@ -25,37 +25,6 @@ using i64 = long long;
 #define dbe(x) cout << x << endl;
 #define dbz(x) cout << x << " ";
 
-void solved() {
-  {
-    int n, i;
-    scanf("%d", &n);
-    int a[n], b[n];
-    for (i = 0; i < n; i++) {
-      scanf("%d", a + i);
-      b[i] = a[i];
-    }
-    std::sort(a, a + n);
-    int marker = 0, r = -1, l = 0;
-    for (i = 0; i < n; i++) {
-      if (a[i] != b[i]) {
-        if (r == -1)
-          r = i;
-        l = i;
-      }
-    }
-    int j;
-    if (r == -1)
-      r = 0;
-    for (i = r, j = l; i <= l; i++, j--)
-      if (a[i] != b[j]) {
-        printf("%s", "no");
-        return 0;
-      }
-    printf("%s\n%d %d", "yes", r + 1, l + 1);
-    return 0;
-  }
-}
-
 void solve() {
   int n;
   cin >> n;
@@ -66,6 +35,7 @@ void solve() {
   vector<int> s(n);
   s = v;
   sort(s);
+  // TODO
   int count = 0;
   vector<int> a;
   debug(v);
