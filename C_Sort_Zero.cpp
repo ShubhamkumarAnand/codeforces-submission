@@ -18,7 +18,6 @@ using i64 = long long;
 #endif
 
 #define ll long long
-#define v(x) vector<int> v(x)
 #define all(x) x.begin(), x.end()
 #define sort(x) sort(all(x));
 #define desc(x) sort(all(x), greater<int>{});
@@ -28,11 +27,39 @@ using i64 = long long;
 void solve() {
   int n;
   cin >> n;
-  v(n);
+  vector<int> a(n);
+  vector<vector<int>> pos(n + 1);
   for (int i = 0; i < n; i++) {
-    cin >> v[i];
+    cin >> a[i];
+    pos[a[i]].push_back(i);
   }
-  // TODO
+
+  int bad = 0, ans = 0;
+  for (int i = 0; i < n - 1; i++) {
+    bad += a[i] > a[i + 1];
+  }
+
+  for (int i = 0; i < n && bad > 0; i++) {
+    if (a[i] > 0) {
+      ans++;
+      for (auto j : pos[a[i]]) {
+        if (j < n - 1) {
+          bad -= a[j] > a[j + 1];
+        }
+        if (j > 0) {
+          bad -= a[j - 1] > a[j];
+        }
+        a[j] = 0;
+        if (j < n - 1) {
+          bad += a[j] > a[j + 1];
+        }
+        if (j > 0) {
+          bad += a[j - 1] > a[j];
+        }
+      }
+    }
+  }
+  dbe(ans);
 }
 
 int main() {
