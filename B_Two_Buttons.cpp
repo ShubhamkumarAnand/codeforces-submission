@@ -1,6 +1,6 @@
 /*
    * Author :  imskanand
-   ^ Time   : 24 August 2022 (23:05)
+   ^ Time   : 28 August 2022 (13:12)
 */
 
 #pragma GCC optimize("O3,unroll-loops")
@@ -26,27 +26,13 @@ using i64 = long long;
 #define dbz(x) cout << x << " ";
 
 void solve() {
-  int n, su = 0;
-  cin >> n;
-  v(n);
-  vector<int> sum(n);
-  for (int i = 0; i < n; i++) {
-    cin >> v[i];
-    su += v[i];
-    sum[i] = su;
-  }
-  int m;
-  cin >> m;
-  while (m--) {
-    int k;
-    cin >> k;
-    // Verdict : TLE at 32
-    for (int i = 0; i < n; i++) {
-      if (k <= sum[i]) {
-        dbe(i + 1);
-        break;
-      }
-    }
+  int n, m;
+  cin >> n >> m;
+  if (m < n) {
+    dbe(n - m);
+  } else if (m > n) {
+    int count = m / n + m % n;
+    dbe(count);
   }
 }
 
