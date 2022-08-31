@@ -35,16 +35,12 @@ void solve() {
     dbe("NO");
     return;
   }
-  for (int i = 0; i < n; i++) {
-    if (str[i] == 't' or str[i] == 'M' or str[i] == 'I' or str[i] == 'U' or
-        str[i] == 'R') {
-      dbe("NO");
-      return;
-    }
+  sort(str);
+  if (str == "Timru") {
+    dbe("YES");
+  } else {
+    dbe("NO");
   }
-  // 123rd is the wrong answer
-  // TODO
-  dbe("YES");
 }
 
 int main() {

@@ -26,9 +26,13 @@ using i64 = long long;
 #define dbz(x) cout << x << " ";
 
 void solve() {
-  int a, b, x, y, d;
-  cin >> a >> b >> x >> y >> d;
-  // TODO: check the dangerous cell range if not in the path of the ROBOT
+  int n, m, x, y, d;
+  cin >> n >> m >> x >> y >> d;
+  if ((y - d <= 1 || x + d >= n) && (y + d >= m || x - d <= 1)) {
+    dbe(-1);
+  } else {
+    dbe(n + m - 2);
+  }
 }
 
 int main() {
